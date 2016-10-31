@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client Info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+</head>
+<body>
+ <div style="color:white;background-color:blue;width:100%; height:auto; margin-bottom:15px;">
+    <div style="color:white;width:100%; heigh:160px;text-align:center;" >
+        <span  style="font-size:17pt">Client Info</span>
+    </div>
+</div>
+<div class="container">
+   
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <form th:object="${insertRecord}" method="POST">
+                <div class="form-group">
+                   <label for="data">Memory Name</label>
+                    <input id="data" type="text" class="form-control" placeholder="First name" th:field="*{name}" />
+                    <label for="data">Memory Price</label>
+                    <input id="data1" type="text" class="form-control" placeholder="ID Number" th:field="*{price}" />
+                  </div>
+                <button type="submit" class="btn btn-default">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Clients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="memory : ${memories}">
+                        <td th:text="${memory.id}">Some text</td>
+                        <td th:text="${memory.name}">Some text</td>
+                        <td th:text="${memory.price}">Some text</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
